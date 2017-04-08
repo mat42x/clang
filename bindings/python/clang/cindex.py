@@ -1567,7 +1567,8 @@ class Cursor(Structure):
             # is a signed or unsigned quantity.
             underlying_type = self.type
             if underlying_type.kind == TypeKind.ENUM:
-                underlying_type = underlying_type.get_declaration().enum_type
+                underlying_type = \
+                  underlying_type.get_declaration().enum_type.get_canonical()
             if underlying_type.kind in (TypeKind.CHAR_U,
                                         TypeKind.UCHAR,
                                         TypeKind.CHAR16,
